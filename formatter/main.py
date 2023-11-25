@@ -69,14 +69,16 @@ def print_formatted_output(char_input: str, numbers: List[int]) -> None:
         # char_indices = [i%max_k for i in range(number)]
         # formatted_words = [words[char_input[i]] for i in char_indices]
         formatted_words = [word[char_input[i % max_k]] for i in range(number)]
-        final = ""
+        formatted_line = ""
         if number > 1:
-            first_part = ", ".join(formatted_words[0 : number - 1])
-            final = f"{first_part} and {formatted_words[number-1]}."
+            formatted_line = (
+                ", ".join(formatted_words[0 : number - 1])
+                + f" and {formatted_words[number-1]}."
+            )
         else:
-            final = f"{formatted_words[0]}."
+            formatted_line = f"{formatted_words[0]}."
 
-        print(final)
+        print(formatted_line)
 
 
 def main():
